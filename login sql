@@ -1,0 +1,18 @@
+-- RBAC implementation for WordPress
+CREATE DATABASE multi_login;
+USE multi_login;
+
+CREATE TABLE users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    user_type VARCHAR(20) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+-- Admin and sample users
+INSERT INTO users (username, email, user_type, password) 
+VALUES ('admin', 'admin@example.com', 'admin', MD5('secureadmin123'));
+
+INSERT INTO users (username, email, user_type, password)
+VALUES ('ronuck', 'ronuck@example.com', 'admin', MD5('ronucksecurepass'));
